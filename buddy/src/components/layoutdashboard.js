@@ -34,7 +34,7 @@ export default function Gui() {
                     <button className="btn btn-outline-success" onClick={displayyearly} >Yearly</button>
                 </center>
             </div>
-            <div><hr /></div>hghgh
+            <div><hr /></div>
             <h1 className="text-center">{heading}</h1>
             <div><h /></div>
             <div id="monthly" >
