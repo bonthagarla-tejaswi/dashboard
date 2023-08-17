@@ -3,12 +3,13 @@ import CIcon from '@coreui/icons-react';
 import{cibSaucelabs, cibRust} from "@coreui/icons";
 import axios from "axios";
 
-export default function Mprofile(){
+ function Mprofile(){
     const [username, setusername] = useState("");
     const [EMAIL, setEMAIL] = useState("");
     const [userid, setuserid] = useState("");
     const [streak, setstreak] = useState(0);
-    const[points, setpoints] = useState(200);
+    const[points, setpoints] = useState(0);
+    const[url, seturl] = useState("");
    
      var quote;
     
@@ -33,35 +34,50 @@ export default function Mprofile(){
           console.error('Error fetching data:', error);
         }
       }
+     const name = "anil reddy kota";
+      const getDetails = async()=>{
+        const res =await axios.post("http://localhost:8000/full/"+name);
+        if(res.data) {
+          setusername(res.data.Name);
+          setEMAIL(res.data.mail_id);
+          setuserid(res.data.user_id);
+          setstreak(res.data.streak);
+          setpoints(res.data.points);
+          seturl(res.data.url);
+        }
+        else{
+          alert('Error fetching');
+        }
+      }
     
-
-    
-
+  useEffect(()=>{
+    getDetails();
+  },[]);
 
     return (
         <div className="smprofile">
                <center>
-            hello {username}
+            hello <i>{username}!</i> 
             <hr />
          
         
-            <a href="/profile" className='text-decoration-none mprofile-logo profile-img'><img src='http://mecap.in/assets/anilimg.jpeg' alt='user'/></a> 
+            <a href="/profile" className='text-decoration-none mprofile-logo profile-img'><img src={url} alt='user'/></a> 
 
            
             
             </center>
+            
             <div className="profile-details">
-                <pre>
-                    <p>NAME             : {username}</p>
-                    <p>USER ID          :{userid}</p>
-                    <p>EMAIL            : {EMAIL}</p>
-                    <p>streak           : {streak} <CIcon icon={cibRust}  className="icon" /></p>
-                    <p>points           : {points} <CIcon icon={cibSaucelabs} className="icon" /></p>
-                    <p className="quote">today Quote      :   <br/> 
-                    {quote}</p>
-                </pre>
+            <p>USER ID      :{userid}</p>
+                    <p>NAME         : {username}</p>
+                    
+                    <p>EMAIL        : {EMAIL}</p>
+                    <p>streak       : {streak} <CIcon icon={cibRust}  className="icon" /></p>
+                    <p>points       : {points} <CIcon icon={cibSaucelabs} className="icon" /></p>
+                    <p className="quote">today Quote  :{quote}</p>
 
             </div>
         </div>
     )
 }
+ export {Mprofile,url} ;

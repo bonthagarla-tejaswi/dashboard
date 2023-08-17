@@ -5,7 +5,6 @@ export default function Gui() {
     const [heading, setheading] = useState("Monthly");
     const displaymonthly = () => {
         document.getElementById("monthly").hidden = false;
-        
         document.getElementById("weekly").hidden = true;
         document.getElementById("yearly").hidden = true;
         setheading("Monthly")

@@ -1,5 +1,5 @@
 import Gui from "./layoutdashboard";
-import Mprofile from "./mprofile";
+import {Mprofile} from "./mprofile";
 
 export default function Layout() {
   return (
