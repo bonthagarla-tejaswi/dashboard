@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+.chart-body{
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px;
+  height: fit-content;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@keyframes display {
+  0% {
+    
+    width: 0;
+    }
+  
+  100% {
+    width:49%;
+  }
+  
 }
+@keyframes move{
+  0%{
+    opacity: 0;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  }
+  50%{
+
+    opacity: 0.5;
+        background-color:black;
+    border-radius: 50%;
+  }
+  100%{
+    opacity: 1;
+
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.charts{
+  height: 39vh;
+  animation: display 2s ease-in -1s ;
 }
-
-.App-link {
-  color: #61dafb;
+.charts-2{
+  
+  animation: display 2s ease-in -1s ;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.charts-play button{
+  margin: 10px;
+}
+.profile-img{
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+.profile-img img{
+  border-radius: 100%;
+  height: 4cm;
+  width: 4cm;
+  border: 2px solid rgb(161, 100, 109);
+ margin-bottom: 50px;
+}
+.smprofile{
+  border: solid 2px black;
+  height: fit-content;
+  margin-top: 10px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  position: sticky;
+  top: 15vh;
+}
+.icon{
+  height:15px;
+  width: auto;
+  animation: move 2s ease-in-out  10;
+}
+.profile-details{
+  margin-left: 10px;
+}
+.navbar-sticky{
+  position: fixed;
+  top: 0px;
+}
+p.quote{
+  max-width: 20px;
+  text-transform: uppercase;
+  text-align: left;
+  color: black;
+}
+.profile-logo img{
+  height: 50px;
+  width: 50px;
+  border-radius: 250px;
+}
+.mprofile-logo img{
+  height: 150px;
+  width: 150px;
+  border-radius: 250px;
+}
+.gui-layout{
+  height:20cm;
+  width: 20cm;
+}
+.overflow-hidden{
+  height: fit-content;
+  overflow: scroll;
 }
