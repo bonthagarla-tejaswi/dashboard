@@ -22,9 +22,7 @@ export default function Gui() {
         document.getElementById("monthly").hidden = true;
         setheading("Yearly")
     }
-    const update = () => {
-         setheading("Monthly");
-    }
+  
 
     return (
         <div className="chart-body">
