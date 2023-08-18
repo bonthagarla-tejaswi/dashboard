@@ -2,16 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import CIcon from '@coreui/icons-react';
 import { cilPuzzle,cilSpeedometer,cilHamburgerMenu } from '@coreui/icons';
-import {
-  CNavItem,
-  CSidebarNav,
-  CSidebarBrand,
-  CSidebarToggler,
-  CSidebar,
-  CNavGroup,
-  CBadge,
-  CNavTitle
-} from "@coreui/react"
+
 
 function Navtop() {
   return (
