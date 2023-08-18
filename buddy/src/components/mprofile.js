@@ -15,13 +15,10 @@ import { useNavigate } from "react-router-dom";
     const[url, seturl] = useState("");
 
       const getDetails = async()=>{
-        if(!localStorage.getItem("name")){
-          nav("/signin")
-          
-        
+        if(!localStorage.getItem("token")){
+          nav("/login")
          }
-         localStorage.setItem("name","anil reddy kota")
-        const name = localStorage.getItem('name');
+        const name = localStorage.getItem('token');
         const res =await axios.get("http://localhost:8000/full/"+name);
         if(!res.data) {
         nav("/signin");

@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Body";
 import Navtop from "./components/navbar";
 import { Mprofile } from "./components/mprofile";
+import Fun from "./components/signup";
 
 function App() {
      
@@ -16,7 +17,8 @@ function App() {
         <BrowserRouter >
           <Routes>
             <Route path="/" element={<Layout />} />
-            <Route path="/profile" element={<Mprofile />} />            
+            <Route path="/profile" element={<Mprofile />} />
+            <Route path="/login" element={<Fun />} />  
             
           </Routes>
         </BrowserRouter>

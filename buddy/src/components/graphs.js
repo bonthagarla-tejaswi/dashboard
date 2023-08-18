@@ -1,7 +1,9 @@
 import React from "react";
 import { CChart } from "@coreui/react-chartjs";
 
+
 function DaysAttendedm() {
+  
   return (
     <CChart
       type="line"
