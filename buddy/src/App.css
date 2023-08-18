@@ -103,3 +103,10 @@ p.quote{
   height: fit-content;
   overflow: scroll;
 }
+.welcmsg{
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.welcmsg i{
+  color: green;
+}

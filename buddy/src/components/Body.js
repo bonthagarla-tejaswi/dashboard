@@ -1,7 +1,13 @@
 import Gui from "./layoutdashboard";
 import {Mprofile} from "./mprofile";
+import { useNavigate } from "react-router-dom";
 
 export default function Layout() {
+  const nav = useNavigate();
+
+  if(localStorage.getItem('name')==null){
+    nav('/signin')
+  }
   return (
     <>
       <div className="margin-top">

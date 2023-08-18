@@ -12,7 +12,7 @@ app.get('/',(req,res)=>{
 // collection name -{details} and db name -{dashboarddata}
 
 
-app.post("/full/:details",async(req,res)=>{
+app.get("/full/:details",async(req,res)=>{
     const result = await db.collection("details").findOne({Name :req.params.details});
     res.json(result);
 
