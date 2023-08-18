@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 
 
 app.get("/full/:details",async(req,res)=>{
-    const result = await db.collection("details").findOne({Name :req.params.details});
+    const result = await db.collection("details").findOne({mail_id:req.params.details});
     res.json(result);
 
 

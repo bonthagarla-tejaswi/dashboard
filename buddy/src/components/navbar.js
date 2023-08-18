@@ -2,8 +2,6 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import CIcon from '@coreui/icons-react';
 import { cilPuzzle,cilSpeedometer,cilHamburgerMenu } from '@coreui/icons';
-
-
 function Navtop() {
   return (
     <Navbar className="bg-body-tertiary navbar-fixed">
