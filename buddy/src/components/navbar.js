@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import CIcon from '@coreui/icons-react';
-import { cilPuzzle,cilSpeedometer } from '@coreui/icons';
+import { cilPuzzle,cilSpeedometer,cilHamburgerMenu } from '@coreui/icons';
 import {
   CNavItem,
   CSidebarNav,
@@ -18,6 +18,9 @@ function Navtop() {
     <Navbar className="bg-body-tertiary navbar-fixed">
       <Container>
       <div className=''>
+      <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+     <cilHamburgerMenu />
+      </a>
      
       </div>
         <Navbar.Brand href="/">buddy</Navbar.Brand>
