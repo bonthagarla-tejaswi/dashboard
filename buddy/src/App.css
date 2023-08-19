@@ -64,7 +64,7 @@
   border-bottom-right-radius: 25px;
   position: sticky;
   top: 15vh;
-  overflow-wrap: normal;
+  overflow:hidden;
 }
 .icon{
   height:15px;
@@ -86,8 +86,8 @@ p.quote{
   color: black;
 }
 .profile-logo img{
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 250px;
 }
 .mprofile-logo img{
@@ -109,4 +109,45 @@ p.quote{
 }
 .welcmsg i{
   color: green;
+}
+li a{
+  text-decoration: none;
+}
+.dropdown-toggler button{
+  border: none;
+  border-radius: 25%;
+}
+.b-none{
+  border: none;
+}
+.anim-none{
+  animation:  none;
+}
+.sidebar-off{
+  background-color: cadetblue;
+}
+.sidebar-list:hover{
+  border:solid 1px black;
+  border-color: green;
+  padding: 2rem;
+  color: green;
+  border-radius:25px;
+  border-color: linear-gradient(bottom,red,blue , white,green, pink);
+  box-shadow: 200px 200px rgba(134, 21, 21, 0);
+  
+}
+.sidebar-list{
+  text-decoration: none;
+  font-size: xx-large;
+  color: brown;
+  padding: 2rem;
+  border-radius:25px;
+  margin: 1px;
+  
+}
+.some-space{
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: xx-large;
+
 }
