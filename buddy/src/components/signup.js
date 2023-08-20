@@ -21,7 +21,7 @@ const Fun =()=>{
     }
     return (
         <>
-        <label> <b>Gmail:: </b><input type="mail" placeholder="enter gmail" onChange={(e)=>setName(e.target.value)}></input></label><br/><br/>
+        <label> <b>Gmail:: </b><input type="email" placeholder="enter gmail" onChange={(e)=>setName(e.target.value)}></input></label><br/><br/>
         
         <button className="bt" onClick={Log}><h6>login</h6></button>
         </>
