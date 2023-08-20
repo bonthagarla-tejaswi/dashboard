@@ -8,22 +8,11 @@ app.use(cors());
 app.get('/',(req,res)=>{
     res.send("server is running")
 })
-
 // collection name -{details} and db name -{dashboarddata}
-
-
-app.get("/full/:details",async(req,res)=>{
-    const result = await db.collection("details").findOne({mail_id:req.params.details});
+app.get("/full/:detail",async(req,res)=>{
+    const result = await db.collection("details").findOne({mail_id:req.params.detail});
     res.json(result);
-
-
 })
-
-
-
-
-
-
 connectToDB(()=>{
     app.listen(8000,()=>{
         console.log("Server Running At port 8000");
