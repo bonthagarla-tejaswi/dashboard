@@ -8,6 +8,7 @@ import Fun from "./components/signup";
 import Navtop from "./components/navbar";
 
 
+
 function App() {
      
 
@@ -22,6 +23,8 @@ function App() {
             <Route path="/" element={<Layout />} />
             <Route path="/profile" element={<Mprofile />} />
             <Route path="/login" element={<Fun />} />  
+            <Route path="/games" element={<h1>hi</h1>}/>
+            <Route path="/games/game1" element={<h1>hi</h1>}/>
             
           </Routes>
         </BrowserRouter>

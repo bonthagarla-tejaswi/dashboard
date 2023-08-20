@@ -151,3 +151,12 @@ li a{
   font-size: xx-large;
 
 }
+.dashboard-title{
+  font-weight: 900px;
+  font-size: xx-large;
+  font-size: 3rem;
+  color: purple;
+}
+h1::selection{
+  background-color: pink;
+}

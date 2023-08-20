@@ -11,7 +11,7 @@ export default function Layout() {
   }
   return (
     <>
-     
+        <div className="text-center display-5 text-bold dashboard-title"><h1>Dashboard</h1></div>
       <div className="margin-top">
         <div className="container-fluid margin-top">
           <div className="row">
