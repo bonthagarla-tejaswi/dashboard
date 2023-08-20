@@ -132,7 +132,7 @@ li a{
   padding: 2rem;
   color: green;
   border-radius:25px;
-  border-color: linear-gradient(bottom,red,blue , white,green, pink);
+  border-color: linear-gradient( to bottom,red,blue , white,green, pink);
   box-shadow: 200px 200px rgba(134, 21, 21, 0);
   
 }

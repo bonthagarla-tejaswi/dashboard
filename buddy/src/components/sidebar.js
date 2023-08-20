@@ -1,6 +1,6 @@
 import { cibDashlane, cibProbot, cilGamepad, cilHamburgerMenu } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
-import { Profiler, useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
