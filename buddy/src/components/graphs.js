@@ -21,18 +21,18 @@ function DaysAttendedm() {
    try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames1(res.data.month[0]);
-     setnames2(res.data.month[1]);
-     setnames3(res.data.month[2]);
-     setnames4(res.data.month[3]);
-     setnames5(res.data.month[4]);
-     setnames6(res.data.month[5]);
-     setnames7(res.data.month[6]);
-     setnames8(res.data.month[7]);
-     setnames9(res.data.month[8]);
-     setnames10(res.data.month[9]);
-     setnames11(res.data.month[10]);
-     setnames12(res.data.month[11]);
+     setnames1(res.data.Month[0]);
+     setnames2(res.data.Month[1]);
+     setnames3(res.data.Month[2]);
+     setnames4(res.data.Month[3]);
+     setnames5(res.data.Month[4]);
+     setnames6(res.data.Month[5]);
+     setnames7(res.data.Month[6]);
+     setnames8(res.data.Month[7]);
+     setnames9(res.data.Month[8]);
+     setnames10(res.data.Month[9]);
+     setnames11(res.data.Month[10]);
+     setnames12(res.data.Month[11]);
    }
  }catch(e){
    console.log("no data available");
@@ -136,18 +136,18 @@ function PointsSecuredm() {
    try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames1(res.data.month[0]);
-     setnames2(res.data.month[1]);
-     setnames3(res.data.month[2]);
-     setnames4(res.data.month[3]);
-     setnames5(res.data.month[4]);
-     setnames6(res.data.month[5]);
-     setnames7(res.data.month[6]);
-     setnames8(res.data.month[7]);
-     setnames9(res.data.month[8]);
-     setnames10(res.data.month[9]);
-     setnames11(res.data.month[10]);
-     setnames12(res.data.month[11]);
+     setnames1(res.data.Month[0]);
+     setnames2(res.data.Month[1]);
+     setnames3(res.data.Month[2]);
+     setnames4(res.data.Month[3]);
+     setnames5(res.data.Month[4]);
+     setnames6(res.data.Month[5]);
+     setnames7(res.data.Month[6]);
+     setnames8(res.data.Month[7]);
+     setnames9(res.data.Month[8]);
+     setnames10(res.data.Month[9]);
+     setnames11(res.data.Month[10]);
+     setnames12(res.data.Month[11]);
    }
  }catch(e){
    console.log("no data available");
@@ -236,7 +236,7 @@ function DaysAPm() {
    try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames12(res.data.month[11]);
+     setnames12(res.data.Month[11]);
    }
  }catch(e){
    console.log("no data available");
@@ -251,11 +251,11 @@ function DaysAPm() {
         <CChart style={{height: '50%', width:'100%' }}
           type="pie"
           data={{
-            labels: ["ABSENT", "PRESENT"],
+            labels: ["DAYS LEFT ", "PRESENT","ABSENT"],
             datasets: [
               {
-                backgroundColor: ["#E46651","#41B883"],
-                data: [30-names12.days_attended, names12.days_attended],
+                backgroundColor: ["#E46651","#41B883","red"],
+                data: [, names12.days_attended,30-names12.days_attended],
               },
             ],
           }}
@@ -281,7 +281,7 @@ function PointsTm() {
    try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames12(res.data.month[11]);
+     setnames12(res.data.Month[11]);
    }
  }catch(e){
    console.log("no data available");
@@ -587,8 +587,8 @@ function DaysAttendedy() {
     try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames1(res.data.year[0]);
-     setnames2(res.data.year[1]);
+     setnames1(res.data.Year[0]);
+     setnames2(res.data.Year[1]);
    }
   }catch(e){
     console.log("no data available");
@@ -654,8 +654,8 @@ function PointsSecuredy() {
     try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames1(res.data.year[0]);
-     setnames2(res.data.year[1]);
+     setnames1(res.data.Year[0]);
+     setnames2(res.data.Year[1]);
    }
   }catch(e){
     console.log("no data available");
@@ -679,7 +679,7 @@ function PointsSecuredy() {
           },
         ],
       }}
-      labels="YEARS"
+      labels="YearS"
       options={{
         plugins: {
           legend: {
@@ -717,7 +717,7 @@ function DaysAPy() {
     try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames2(res.data.year[0]);
+     setnames2(res.data.Year[0]);
    }
   }catch(e){
     console.log("no data available");
@@ -760,7 +760,7 @@ function PointsTy() {
     try{
    const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
    if(res.data){  
-     setnames2(res.data.year[0]);
+     setnames2(res.data.Year[0]);
    }
   }catch(e){
     console.log("no data available");

@@ -3,28 +3,30 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Body";
-import { Mprofile } from "./components/mprofile";
-import Fun from "./components/signup";
 import Navtop from "./components/navbar";
-
-
+import { Signin } from "./components/pages/signin";
+import { Signup } from "./components/pages/signup";
+import { Updatepass } from "./components/pages/updatepass";
+import Dicee from "./components/pages/games/dicee";
+import { Game } from "./components/pages/games";
+import Profile from "./components/pages/profile";
+import { Details } from "./components/pages/updateprofile";
 
 function App() {
-     
-
   return (
     <>
       <div>
        <Navtop />
-        <BrowserRouter >
-       
+        <BrowserRouter>
           <Routes>
-         
             <Route path="/" element={<Layout />} />
-            <Route path="/profile" element={<Mprofile />} />
-            <Route path="/login" element={<Fun />} />  
-            <Route path="/games" element={<h1>hi</h1>}/>
-            <Route path="/games/game1" element={<h1>hi</h1>}/>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Signin />} />  
+            <Route path="/signup" element={<Signup />} />
+            <Route path='/updatepass' element={<Updatepass />}/>
+            <Route path='/updateprofiledetails' element={<Details />}/>
+            <Route path="/games" element={<Game />}/>
+            <Route path="/games/dicee" element={<Dicee />}/>
             
           </Routes>
         </BrowserRouter>

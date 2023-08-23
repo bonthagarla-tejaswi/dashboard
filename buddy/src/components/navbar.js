@@ -2,29 +2,26 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { useEffect, useState } from 'react';
 import Sidebar from './sidebar';
+import SearchBar from './searchbar';
 
 function Navtop() {
 
   const [url,seturl]=useState("user.png")
-  const [btn1,setbtn1]=useState("profile")
-  const [btn2,setbtn2]=useState("logout")
-  const [btn2url,setbtn2url]=useState("logout")
+ 
 
  useEffect(() =>{
   if(localStorage.getItem("url")){
     seturl(localStorage.getItem("url"));
-    
+    document.getElementById("sidebar-menu").hidden=false;
+    document.getElementById("signed-in1").hidden=true;
+    document.getElementById("signed-in2").hidden=true;
+
   }
   else {
-    setbtn1("login");
-    setbtn2("signup");
-    setbtn2url("/signup");
+   
 
   }
-  if(!localStorage.getItem("token")){
-    document.getElementById("sidebar-menu").hidden=true;
-
-  }
+ 
  
  },[])  
   const logout = ()=>{
@@ -36,19 +33,28 @@ function Navtop() {
     <Navbar className="bg-body-tertiary navbar-fixed">
       <Container>
         <dir id="sidebar-menu"> <Sidebar /></dir>
+       
     
-        <Navbar.Brand href="/"><div className='some-space'>buddy</div></Navbar.Brand>
+        <Navbar.Brand ><div className='some-space'>buddy</div></Navbar.Brand>
+        <div className='search-bar-in-navbar'>
+          <SearchBar />
+          </div>
         <Navbar.Toggle />
+       
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
           
-          <div class="dropdown dropstart b-none">
-                <button class="dropdown-toggle circle" data-bs-toggle="dropdown" aria-expanded="false">
-                     <a href="/profile" className='text-decoration-none profile-logo' ><img src={url} /></a> 
+          <div className="dropdown dropstart b-none">
+            
+                <button className="dropdown-toggle circle" data-bs-toggle="dropdown" aria-expanded="false">
+                     <a href="/profile" className='text-decoration-none profile-logo' ><img src={url} alt='user'/></a> 
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a href='/profile'><button class="dropdown-item" type="button">{btn1}</button></a></li>
-                     <li><button class="dropdown-item btn btn-outline-danger" type="button" onClick={logout}>{btn2}</button></li> 
+                <ul className="dropdown-menu">
+                    <li><a href='/signup'><button className="dropdown-item" type="button" id="signed-in1" >sign up</button></a></li>
+                    <li><a href='/login'><button className="dropdown-item" type="button" id="signed-in2" >sign in</button></a></li>
+                    <li><a href='/profile'><button className="dropdown-item" type="button">profile</button></a></li>
+                     <li><button className="dropdown-item btn btn-outline-danger" type="button" onClick={logout}>log out</button></li> 
+                     
                </ul>
           </div>
           </Navbar.Text>

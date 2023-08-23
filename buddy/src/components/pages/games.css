@@ -1,0 +1,25 @@
+.main{
+    
+    content: "";
+    clear: both;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 100vh;
+    background-size: cover;
+    
+     
+  }
+  .games{
+    padding-top: 4cm;
+  }
+  
+  .text{
+    text-shadow  : 3px 3px whitesmoke;
+    text-align: center;
+  }
+  img{
+    border-radius: 13px;
+  }
+  .h2{
+    text-align: right;
+  }
