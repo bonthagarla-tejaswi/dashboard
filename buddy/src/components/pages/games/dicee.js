@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Dicee(){
     const nav = useNavigate();
     if(localStorage.getItem("token")==null){
-        nav("/login");
+        nav("/");
      }
     const [player1name, setplayer1name] = useState("");
     const [player2name, setplayer2name] = useState("");

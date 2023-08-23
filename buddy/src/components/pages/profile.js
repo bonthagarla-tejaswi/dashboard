@@ -7,7 +7,7 @@ export default function Profile() {
   const nav = useNavigate();
 
   if (localStorage.getItem("token") == null) {
-    nav("/login");
+    nav("/");
   }
 
   const [userData, setUserData] = useState({

@@ -6,7 +6,7 @@ export const Details = () => {
     
     const nav = useNavigate();
      if (localStorage.getItem("token") == null) {
-        nav("/login");
+        nav("/");
       }
     const [username, Setusername] = useState();
     const [father, Setfather] = useState();
