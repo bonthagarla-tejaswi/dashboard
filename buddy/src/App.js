@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./components/Body";
 import Navtop from "./components/navbar";
 import { Signin } from "./components/pages/signin";
@@ -16,10 +16,11 @@ function App() {
   return (
     <>
       <div>
-       <Navtop />
+      <Navtop />
         <BrowserRouter>
+        
           <Routes>
-            <Route path="/" element={<Layout />} />
+            <Route path="/" element={ <Layout />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Signin />} />  
             <Route path="/signup" element={<Signup />} />
@@ -36,4 +37,4 @@ function App() {
 
   );
 }
-export default App;
+export default App; 

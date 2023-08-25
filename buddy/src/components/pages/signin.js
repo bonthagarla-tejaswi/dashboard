@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./signin.css"
 export const Signin = () => {
   const nav = useNavigate();
+ useEffect(()=>{
+  if(localStorage.getItem("token")){
+    nav('/');
+ } 
+ })
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,6 +28,7 @@ export const Signin = () => {
       }
     } catch (e) {
       console.log(e);
+      alert("check your network connection");
     }
   };
   const PassCheck = () => {

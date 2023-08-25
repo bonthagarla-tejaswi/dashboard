@@ -41,30 +41,31 @@ export const Signup = () => {
      
   }
   const [errorMessage, setErrorMessage] = useState("");
-        function handlePassword(event) {
-              
-            const new_pass = event.target.value;
-            setPassword(new_pass);
-            var lowerCase = /[a-z]/g;
-            var upperCase = /[A-Z]/g;
-            var numbers = /[0-9]/g;
-            if (!new_pass.match(upperCase)) {
-              setErrorMessage("Password should contains uppercase letters!");
-            } 
-            else if (!new_pass.match(lowerCase)) {
-              setErrorMessage("Password should contain lowercase letters!");
-            } 
-            else if (!new_pass.match(numbers)) {
-              setErrorMessage("Password should contains numbers also!");
-            } 
-            else if (new_pass.length<8) {
-              setErrorMessage("Password length should be more than 8.");
-            } 
-            else {
-              setErrorMessage("Password is strong!"); 
-            }
+  function handlePassword(event) {
+        
+      const new_pass = event.target.value;
+      setPassword(new_pass);
+      var lowerCase = /[a-z]/g;
+      var upperCase = /[A-Z]/g;
+      var numbers = /[0-9]/g;
+      if (!new_pass.match(upperCase)) {
+        setErrorMessage("Password should contains uppercase letters!");
+      } 
+      else if (!new_pass.match(lowerCase)) {
+        setErrorMessage("Password should contain lowercase letters!");
+      } 
+      else if (!new_pass.match(numbers)) {
+        setErrorMessage("Password should contains numbers also!");
+      } 
+      else if (new_pass.length<6) {
+        setErrorMessage("Password length should be more than 6.");
+      } 
+     
+      else {
+        setErrorMessage(""); 
+      }
 
-        }
+  }
         const[cperrormsg,setcperrormsg]=useState("")
         function handleConPassword(event) {
           const con_pass = event.target.value;
@@ -74,6 +75,34 @@ export const Signup = () => {
           }
           else{
             setcperrormsg("Password must be matched");
+          }
+        }
+        const[numbererrormsg,setnumbererrormsg]=useState("")
+        function handlenumber(e){
+          const Phone_no=e.target.value;
+          setNumber(Phone_no);
+          if(Phone_no.length<10 ){
+            setnumbererrormsg('Enter valid number');
+          }
+          else if(Phone_no.length>10){
+            setnumbererrormsg('Phone number should be 10 digits only!');
+          }
+          else{
+            setnumbererrormsg('');
+          }
+        }
+        const[useriderrormsg,setuseriderrormsg]=useState("")
+        function handleuserid(e){
+          const userid=e.target.value;
+          setUser_id(userid);
+          if(userid.length<10){
+            setuseriderrormsg('User id should have  ten characters.');
+          }
+          else if(userid.length>10){
+            setuseriderrormsg('User Id can not exceed 10 character.')
+          }
+          else{
+            setuseriderrormsg('');
           }
         }
 
@@ -99,13 +128,15 @@ export const Signup = () => {
           <div className="input-box">
             <span className="details">Registration Number</span>
             <input type="text" placeholder="Enter your Registration Number" required
-             onChange={(e) =>setUser_id(e.target.value)}  />
+             onChange={handleuserid}  />
           </div>
+          <div className="passvalidation">{useriderrormsg}</div>
           <div className="input-box">
             <span className="details">Phone Number</span>
             <input type="text" placeholder="Enter your number" required
-             onChange={(e) => setNumber(e.target.value)}  />
+             onChange={handlenumber}  />
           </div>
+          <div className="passvalidation">{numbererrormsg}</div>
           <div className="input-box">
             <span className="details">Date of Birth</span>
             <input type="date"  required
@@ -146,6 +177,9 @@ export const Signup = () => {
         </div>
         <div >
         <button type="submit" className="button">REGISTER</button>
+        </div>
+        <div className="signup-link">
+          Already have an account ? <a href="/">signin now</a>
         </div>
       </form>
     </div>

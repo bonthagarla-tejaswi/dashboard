@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Gui from "./layoutdashboard";
 import {Mprofile} from "./mprofile";
 import { useNavigate } from "react-router-dom";
@@ -5,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Layout() {
   const nav = useNavigate();
-
-  if(localStorage.getItem('name')==null){
+ useEffect(() =>{
+  if(localStorage.getItem('token')==null){
     nav('/login')
   }
+ })
+
   return (
     <>
         <div className="text-center display-5 text-bold dashboard-title"><h1>Dashboard</h1></div>

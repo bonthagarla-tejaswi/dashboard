@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CIcon from '@coreui/icons-react';
 import { cilSearch } from '@coreui/icons';
@@ -6,42 +6,33 @@ import { cilSearch } from '@coreui/icons';
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
-  const [showResults, setShowResults] = useState(true);
-
-  const resultBoxRef = useRef(null);
+  const [showResults, setShowResults] = useState(false); // Start with results hidden
 
   const handleSearchChange = (event) => {
-    handleSearchSubmit();
     setSearchTerm(event.target.value);
+    handleSearchSubmit();
   };
 
-  const handleSearchSubmit = async (event) => {
-    // event.preventDefault();
-    
-      try {
-        const res = await axios.get("http://localhost:8000/get/" + searchTerm);
-        if (res.data && res.data.length > 0) {
-          setSearchResult(res.data);
-          setShowResults(true);
-        } else {
-          setSearchResult([]);
-          setShowResults(false);
-        }
-      } catch (e) {
-        console.log("no data");
+  const handleSearchSubmit = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/get/" + searchTerm);
+      if (res.data && res.data.length > 0) {
+        setSearchResult(res.data);
+        setShowResults(true); // Show results when data is found
+      } else {
         setSearchResult([]);
-        setShowResults(false);
+        setShowResults(false); // Hide results when no data
       }
-   
-  };
-
-  const handleResultBoxClick = (event) => {
-    event.stopPropagation();
+    } catch (e) {
+      console.log("Error fetching data:", e);
+      setSearchResult([]);
+      setShowResults(false);
+    }
   };
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
-      if (resultBoxRef.current && !resultBoxRef.current.contains(event.target)) {
+      if (!event.target.closest(".box-result")) {
         setShowResults(false);
       }
     };
@@ -68,8 +59,7 @@ const SearchBar = () => {
       </div>
 
       {showResults && (
-        <div className='box-result' ref={resultBoxRef} onClick={handleResultBoxClick} >
-          {/* {SearchResulterror && <p>{SearchResulterror}</p>} */}
+        <div className='box-result'>
           {searchResult.map((post, index) => (
             <div key={index} className='result-list'>
               <h4>{post.title}</h4>

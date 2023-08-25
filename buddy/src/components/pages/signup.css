@@ -133,7 +133,7 @@ form .user-details .input-box{
   form .category{
     width: 100%;
   }
-  .content form .user-details{
+  .content form .user-details .gender-details{
     max-height: 300px;
     overflow-y: scroll;
   }

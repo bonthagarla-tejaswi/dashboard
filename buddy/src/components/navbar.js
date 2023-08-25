@@ -32,7 +32,7 @@ function Navtop() {
   return (
     <Navbar className="bg-body-tertiary navbar-fixed">
       <Container>
-        <dir id="sidebar-menu"> <Sidebar /></dir>
+        <dir id="sidebar-menu" > <Sidebar /></dir>
        
     
         <Navbar.Brand ><div className='some-space'>buddy</div></Navbar.Brand>
@@ -46,7 +46,7 @@ function Navtop() {
           
           <div className="dropdown dropstart b-none">
             
-                <button className="dropdown-toggle circle" data-bs-toggle="dropdown" aria-expanded="false">
+                <button className="dropdown-toggle circle btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
                      <a href="/profile" className='text-decoration-none profile-logo' ><img src={url} alt='user'/></a> 
                 </button>
                 <ul className="dropdown-menu">

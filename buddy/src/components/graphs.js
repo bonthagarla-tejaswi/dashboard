@@ -67,7 +67,7 @@ function DaysAttendedm() {
             label: " Attendance Chart",
             backgroundColor: "rgba(220, 220, 220, 0.2)",
             borderColor: "black",
-            pointBackgroundColor: "white",
+            pointBackgroundColor: "yellow",
             pointBorderColor: "black",
             data: [
               names1.days_attended,
@@ -98,18 +98,18 @@ function DaysAttendedm() {
         scales: {
           x: {
             grid: {
-              color: "green",
+              color: "#66ccff",
             },
             ticks: {
-              color: "red",
+              color: "#0039ec",
             },
           },
           y: {
             grid: {
-              color: "black",
+              color: "#66ccff",
             },
             ticks: {
-              color: "red",
+              color: "#0039ec",
             },
           },
         },
@@ -179,7 +179,7 @@ function PointsSecuredm() {
         datasets: [
           { lineTension: 0.1,
             label: "points scored",
-            backgroundColor: "#f87979",
+            backgroundColor: "#0039e6",
             data: [
                names1.points_scored,
                names2.points_scored, 
@@ -209,18 +209,18 @@ function PointsSecuredm() {
         scales: {
           x: {
             grid: {
-              color: "#f1f1f1",
+              color: "#66ccff",
             },
             ticks: {
-              color: "#ac00e6",
+              color: "red",
             },
           },
           y: {
             grid: {
-              color: "#1a75ff",
+              color: "#66ccff",
             },
             ticks: {
-              color: "#ff8c1a",
+              color: "red",
             },
           },
         },
@@ -251,11 +251,11 @@ function DaysAPm() {
         <CChart style={{height: '50%', width:'100%' }}
           type="pie"
           data={{
-            labels: ["DAYS LEFT ", "PRESENT","ABSENT"],
+            labels: [ "PRESENT","ABSENT"],
             datasets: [
               {
-                backgroundColor: ["#E46651","#41B883","red"],
-                data: [, names12.days_attended,30-names12.days_attended],
+                backgroundColor: ["#0039e6","red"],
+                data: [names12.days_attended,30-names12.days_attended],
               },
             ],
           }}
@@ -301,10 +301,10 @@ function PointsTm() {
               label: "MY POINTS ",
               backgroundColor: "rgba(220, 220, 220, 0.2)",
               borderColor: "black",
-              pointBackgroundColor: "rgba(220, 220, 220, 1)",
+              pointBackgroundColor: "white",
               pointBorderColor: "#fff",
               pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(220, 220, 220, 1)",
+              pointHighlightStroke: "orange",
               data: [names12.points_scored/3, names12.points_scored/3, names12.points_scored/3],
             },
     
@@ -324,7 +324,7 @@ function PointsTm() {
                 color: "#80d4ff",
               },
               ticks: {
-                color:  "#1aff66",
+                color:  "red",
               },
             },
           },

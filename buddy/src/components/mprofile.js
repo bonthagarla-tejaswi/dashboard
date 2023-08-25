@@ -58,20 +58,20 @@ import { useNavigate } from "react-router-dom";
     return (
         <div className="smprofile">
                <center>
-         <div className="welcmsg">hello <i>{username}!</i> </div>   
+         <div className="welcmsg">hello <i color="#0039e6">{username}!</i> </div>   
             <hr />
             <a href="/profile" className='text-decoration-none mprofile-logo profile-img'><img src={url} alt='user'/></a> 
             </center>
             
             <div className="profile-details">
-            <p>USER ID      :{userid}</p>
-                    <p>NAME         : {username}</p>
+            <p>User id     :{userid}</p>
+                    <p>Name         : {username}</p>
                     
-                    <p title={EMAIL}>EMAIL        : {EMAIL}</p>
-                    <p>streak       : {streak} <CIcon icon={cibRust}  className="icon" /></p>
-                    <p>points       : {points} <CIcon icon={cibSaucelabs} className="icon" /></p>
-                    <p>location      : <CIcon icon={cilLocationPin} className="anim-none" /></p>
-                    <p className="quote">today Quote  :{}</p>
+                    <p title={EMAIL}>Email       : {EMAIL}</p>
+                    <p>Streak       : {streak} <CIcon icon={cibRust}  className="icon" /></p>
+                    <p>Points       : {points} <CIcon icon={cibSaucelabs} className="icon" /></p>
+                    <p>Location      : <CIcon icon={cilLocationPin} className="anim-none" /></p>
+                    <p className="quote">today Quote  :</p>
                     <button onClick={Logout} className="btn btn-outline-danger"><CIcon icon={cilAccountLogout} className="anim-none"/>Logout</button>
                     
             </div>

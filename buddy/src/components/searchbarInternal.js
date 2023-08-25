@@ -30,17 +30,17 @@ const SearchBar2 = () => {
     <>
     <div className='body1'>
       
-    <div className='box1' >
-   
+    <div className='box1 m-3' >
+    <div class="input-group input-group-lg">
     <input
         type="text"
         placeholder="Search for your details"
         value={searchTerm2}
         onChange={(e)=>setSearchTerm2(e.target.value)}
-        className='border border-success' 
+        className='border border-success form-control' 
       />
-        <button  className="btn btn-outline-success" onClick={handleSearchSubmit}><CIcon icon={cilSearch} className='anim-none'/></button>
-
+        <span class="input-group-text"> <button  className="btn btn-outline-success" onClick={handleSearchSubmit}><CIcon icon={cilSearch} className='anim-none'/></button></span>
+        </div>
     </div>
     </div>
     {searchresult}

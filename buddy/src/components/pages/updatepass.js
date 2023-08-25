@@ -1,4 +1,4 @@
-import {React, useState } from "react";
+import {React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./signin.css"
@@ -8,6 +8,7 @@ export const Updatepass = () => {
     const [newpassword,Setnewpassword]=useState([]);
     const [dob,Setdob]=useState([]);
     const nav =useNavigate();
+ 
     const Submit = async (e) => {
       e.preventDefault();
         try {
@@ -32,30 +33,33 @@ export const Updatepass = () => {
          }
        }
        const [errorMessage, setErrorMessage] = useState("");
-        function handlePassword(event) {
-              
-            const new_pass = event.target.value;
-            Setnewpassword(new_pass);
-            var lowerCase = /[a-z]/g;
-            var upperCase = /[A-Z]/g;
-            var numbers = /[0-9]/g;
-            if (!new_pass.match(upperCase)) {
-              setErrorMessage("Password should contains uppercase letters!");
-            } 
-            else if (!new_pass.match(lowerCase)) {
-              setErrorMessage("Password should contain lowercase letters!");
-            } 
-            else if (!new_pass.match(numbers)) {
-              setErrorMessage("Password should contains numbers also!");
-            } 
-            else if (new_pass.length<8) {
-              setErrorMessage("Password length should be more than 8.");
-            } 
-            else {
-              setErrorMessage("Password is strong!"); 
-            }
+       function handlePassword(event) {
+             
+           const new_pass = event.target.value;
+           Setnewpassword(new_pass);
+           var lowerCase = /[a-z]/g;
+           var upperCase = /[A-Z]/g;
+           var numbers = /[0-9]/g;
+           if (!new_pass.match(upperCase)) {
+             setErrorMessage("Password should contains uppercase letters!");
+           } 
+           else if (!new_pass.match(lowerCase)) {
+             setErrorMessage("Password should contain lowercase letters!");
+           } 
+           else if (!new_pass.match(numbers)) {
+             setErrorMessage("Password should contains numbers also!");
+           } 
+           else if (new_pass.length<6) {
+             setErrorMessage("Password length should be more than 6.");
+           } 
+           else if(new_pass.length>=9){
+             setErrorMessage("Password length should be less than or equal to 8.");
+           }
+           else {
+             setErrorMessage(""); 
+           }
 
-        }
+       }
   return (
     <>
     <div className="body html">
