@@ -19,7 +19,7 @@ function DaysAttendedm() {
     
   const daysattendedwly = async() => {
    try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames1(res.data.Month[0]);
      setnames2(res.data.Month[1]);
@@ -134,7 +134,7 @@ function PointsSecuredm() {
     
   const daysattendedwly = async() => {
    try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames1(res.data.Month[0]);
      setnames2(res.data.Month[1]);
@@ -234,7 +234,7 @@ function DaysAPm() {
     
   const daysattendedwly = async() => {
    try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames12(res.data.Month[11]);
    }
@@ -279,7 +279,7 @@ function PointsTm() {
     
   const daysattendedwly = async() => {
    try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames12(res.data.Month[11]);
    }
@@ -342,7 +342,7 @@ function DaysAttendedw() {
        
      const daysattendedwly = async() => {
       try{
-      const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+      const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
       if(res.data){  
         setnames1(res.data.Week[0]);
         setnames2(res.data.Week[1]);
@@ -415,7 +415,7 @@ function PointsSecuredw() {
     
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames1(res.data.Week[0]);
      setnames2(res.data.Week[1]);
@@ -483,7 +483,7 @@ function DaysAPw() {
   const[names4, setnames4]=useState([{}]); 
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames4(res.data.Week[3]);
    }
@@ -526,7 +526,7 @@ function PointsTw() {
   const[names4, setnames4]=useState([{}]); 
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames4(res.data.Week[3]);
    }
@@ -585,7 +585,7 @@ function DaysAttendedy() {
   const[names2, setnames2]=useState([{}]);
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames1(res.data.Year[0]);
      setnames2(res.data.Year[1]);
@@ -652,7 +652,7 @@ function PointsSecuredy() {
   const[names2, setnames2]=useState([{}]);
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames1(res.data.Year[0]);
      setnames2(res.data.Year[1]);
@@ -715,7 +715,7 @@ function DaysAPy() {
   const[names2, setnames2]=useState([{}]);
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames2(res.data.Year[0]);
    }
@@ -758,7 +758,7 @@ function PointsTy() {
   const[names2, setnames2]=useState([{}]);
   const daysattendedwly = async() => {
     try{
-   const res =await axios.get("http://localhost:8000/full/"+localStorage.getItem("token"));
+   const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+localStorage.getItem("token"));
    if(res.data){  
      setnames2(res.data.Year[0]);
    }

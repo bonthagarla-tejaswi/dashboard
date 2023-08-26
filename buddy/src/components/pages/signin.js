@@ -16,7 +16,7 @@ export const Signin = () => {
     e.preventDefault();
     
     try {
-      const result = await axios.get("http://localhost:8000/signin/"+email+'/'+password);
+      const result = await axios.get("https://buddy-y2rk.onrender.com/signin/"+email+'/'+password);
         
       if (result.data) {
         alert("Successfully logged in");

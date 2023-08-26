@@ -41,7 +41,7 @@ export default function Profile() {
 
   const getdata = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/full/' + localStorage.getItem("token"));
+      const res = await axios.get('https://buddy-y2rk.onrender.com/full/' + localStorage.getItem("token"));
       setUserData(res.data);
       
     } catch (error) {

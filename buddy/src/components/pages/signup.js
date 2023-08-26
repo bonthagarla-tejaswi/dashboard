@@ -16,7 +16,7 @@ export const Signup = () => {
     e.preventDefault();
      try{
       if(password===conpass){
-        const result = await axios.post("http://localhost:8000/signup/"+name+'/'+email+'/'+number+'/'+dob+'/'+password+'/'+gender+'/'+user_id.toLowerCase());
+        const result = await axios.post("https://buddy-y2rk.onrender.com/signup/"+name+'/'+email+'/'+number+'/'+dob+'/'+password+'/'+gender+'/'+user_id.toLowerCase());
       console.log(result)
          if(result.data)
          {

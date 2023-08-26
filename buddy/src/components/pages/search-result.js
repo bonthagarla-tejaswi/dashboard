@@ -12,7 +12,7 @@ const SearchResultPage = (match) => {
     }
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/get/" +sessionStorage.getItem("searchone"));
+        const res = await axios.get("https://buddy-y2rk.onrender.com/get/" +sessionStorage.getItem("searchone"));
         setDetailedResult(res.data);
       } catch (error) {
         console.log("Error fetching detailed data:", error);

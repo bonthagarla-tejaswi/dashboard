@@ -17,7 +17,7 @@ const SearchBar = () => {
   const handleSearchSubmit = async () => {
     try {
       if(searchTerm.length >3){
-      const res = await axios.get("http://localhost:8000/get/" + searchTerm);
+      const res = await axios.get("https://buddy-y2rk.onrender.com/get/" + searchTerm);
       if (res.data && res.data.length > 0) {
         setSearchResult(res.data);
         setShowResults(true); 

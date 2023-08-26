@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
             nav("/login")
            }
         const name = localStorage.getItem('token');
-        const res =await axios.get("http://localhost:8000/full/"+name);
+        const res =await axios.get("https://buddy-y2rk.onrender.com/full/"+name);
         if(!res.data) {
         nav("/login");
         }

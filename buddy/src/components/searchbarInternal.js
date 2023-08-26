@@ -11,7 +11,7 @@
 
 //   const handleSearchSubmit = async () => {
 //     try {
-//       const res = await axios.get("http://localhost:8000/get2/" + searchTerm);
+//       const res = await axios.get("https://buddy-y2rk.onrender.com/get2/" + searchTerm);
 //       if (res.data) {
 //         setSearchResult(res.data);
 //         console.log(res.data.Name)

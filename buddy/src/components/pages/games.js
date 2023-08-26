@@ -22,7 +22,7 @@ export const Game = () => {
        })
     const getData = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/full/' + localStorage.getItem('token'));
+            const res = await axios.get('https://buddy-y2rk.onrender.com/full/' + localStorage.getItem('token'));
             if (res.data) {
                 setCount(res.data.Points);
                 setUserName(res.data.Name.toUpperCase());
@@ -40,7 +40,7 @@ export const Game = () => {
             if (earnCount < 4) {
                 const updatedPoints = parseInt(count) + 1;
                 const updatedEarnCount = earnCount + 1;
-                const res = await axios.post('http://localhost:8000/update/' + localStorage.getItem("token") + '/' + updatedPoints);
+                const res = await axios.post('https://buddy-y2rk.onrender.com/update/' + localStorage.getItem("token") + '/' + updatedPoints);
                 if (res.data) {
                     setCount(updatedPoints.toString());
                     setEarnCount(updatedEarnCount);

@@ -25,7 +25,7 @@ export const Details = () => {
         nav('/profile')
     }
     const Submit = async () => {
-        const responce = await axios.post("http://localhost:8000/Profile/" + username + "/" + father + "/" + mother + "/" + reg + "/" + exp + "/" + duration + "/" + yes + "/" + dsn + "/" + othercourses + "/" + experience);
+        const responce = await axios.post("https://buddy-y2rk.onrender.com/Profile/" + username + "/" + father + "/" + mother + "/" + reg + "/" + exp + "/" + duration + "/" + yes + "/" + dsn + "/" + othercourses + "/" + experience);
         console.log(responce.data);
         if (responce.data) {
             alert("data inserted successfully");

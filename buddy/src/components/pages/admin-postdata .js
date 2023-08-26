@@ -8,7 +8,7 @@ export const Datainsert =() =>
     const [content,Setcontent]=useState([]);
     const Submit = async () => {
         try {
-          const res = await axios.post("http://localhost:8000/admin/articles/"+title+"/"+content+"/"+key1+"/"+key2);
+          const res = await axios.post("https://buddy-y2rk.onrender.com/admin/articles/"+title+"/"+content+"/"+key1+"/"+key2);
           if (res.data) {
             alert("Successfully added");
           } else {

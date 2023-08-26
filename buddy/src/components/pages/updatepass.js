@@ -12,7 +12,7 @@ export const Updatepass = () => {
     const Submit = async (e) => {
       e.preventDefault();
         try {
-          const res = await axios.post("http://localhost:8000/updatepass/"+email+"/"+dob+"/"+newpassword);
+          const res = await axios.post("https://buddy-y2rk.onrender.com/updatepass/"+email+"/"+dob+"/"+newpassword);
           if (res.data) {
             alert("Successfully updated ");
             nav("/");
