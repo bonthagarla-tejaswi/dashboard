@@ -11,6 +11,7 @@ import Dicee from "./components/pages/games/dicee";
 import { Game } from "./components/pages/games";
 import Profile from "./components/pages/profile";
 import { Details } from "./components/pages/updateprofile";
+import SearchResultPage from "./components/pages/search-result";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
             <Route path='/updatepass' element={<Updatepass />}/>
             <Route path='/updateprofiledetails' element={<Details />}/>
             <Route path="/games" element={<Game />}/>
-            <Route path="/games/dicee" element={<Dicee />}/>
+            <Route path="/result" element={<SearchResultPage />}/>
+            <Route path="/games/dicee" element={(localStorage.getItem("token")!==null)?<Dicee />:<Signin />}/>
             
           </Routes>
         </BrowserRouter>

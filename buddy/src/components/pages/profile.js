@@ -27,6 +27,7 @@ export default function Profile() {
     yes: " ",
     dsn: " ",
     Gender: " ",
+    Dob : " ",
     othercourses: " ",
     experience: " ",
     Points : " ",
@@ -55,6 +56,29 @@ export default function Profile() {
   const update = () => {
     nav('/updateprofiledetails');
   }
+  // Example userData object
+  const lastEarnedDateStr = new Date().toISOString().slice(0, 10); // Get current date string in YYYY-MM-DD format
+  const lastEarnedDate = new Date(lastEarnedDateStr); // Convert to a Date object
+  if (userData.Dob) {
+    const dobParts = userData.Dob.split('-'); // Split the DOB string into [YYYY, MM, DD]
+    const dob = new Date(dobParts[0], dobParts[1] - 1, dobParts[2]); // Subtract 1 from month
+  
+    var age = lastEarnedDate.getFullYear() - dob.getFullYear();
+  
+    if (
+      lastEarnedDate.getMonth() < dob.getMonth() ||
+      (lastEarnedDate.getMonth() === dob.getMonth() && lastEarnedDate.getDate() < dob.getDate())
+    ) {
+      age--;
+    }
+  
+    
+  } else {
+    
+  }
+  
+  
+
 
   return (
     <>
@@ -65,7 +89,7 @@ export default function Profile() {
         <div class="d-flex justify-content-end">  <button className='btn btn-danger' onClick={logout}><CIcon icon={cilAccountLogout} className='anim-none'></CIcon> logout</button></div>
       
         <div>
-        <div class="d-flex justify-content-center"><img  src={localStorage.getItem("url")}/></div>
+        <div class="d-flex justify-content-center"><img alt='login' src={localStorage.getItem("url")}/></div>
           <i className='fs-6'>
             <div className='row'>
               <div className='col-sm-12 col-lg-6'>
@@ -73,7 +97,8 @@ export default function Profile() {
             <p className="h6 text-primary">Father                : <span className="text-muted"> {userData.Father}</span> </p>
             <p className="h6 text-primary">Mother                : <span className="text-muted"> {userData.Mother}</span> </p>
             <p className="h6 text-primary">Reg no                : <span className="text-muted"> {userData.User_id.toUpperCase()}</span> </p>
-            <p className="h6 text-primary">Age                   : <span className="text-muted"> {userData.Dob}</span> </p>
+            <p className="h6 text-primary">Age                   : <span className="text-muted"> {age}</span> </p>
+            <p className="h6 text-primary">Date of Birth         : <span className="text-muted"> {userData.Dob}</span> </p>
             <p className="h6 text-primary">Gender                : <span className="text-muted"> {userData.Gender}</span> </p>
             <p className="h6 text-primary">points                : <span className="text-muted"> {userData.Points}</span> </p>
             <p className="h6 text-primary">Streak                : <span className="text-muted"> {userData.Streak}</span> </p>

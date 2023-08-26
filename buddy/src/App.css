@@ -339,3 +339,13 @@ a:hover{
   height: 0.8cm;
   width: auto;
 }
+#completed{
+  border-radius: 28px;
+  padding: 20%;
+}
+#completed:hover{
+     
+  color: red;
+  border:green solid 5px;
+  background-color: powderblue;
+}

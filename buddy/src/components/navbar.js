@@ -33,8 +33,7 @@ function Navtop() {
     <Navbar className="bg-body-tertiary navbar-fixed">
       <Container>
         <dir id="sidebar-menu" > <Sidebar /></dir>
-       
-    
+      
         <Navbar.Brand ><div className='some-space'>buddy</div></Navbar.Brand>
         <div className='search-bar-in-navbar'>
           <SearchBar />

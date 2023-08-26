@@ -21,7 +21,6 @@ app.post("/signup/:name/:email/:number/:dob/:password/:gender/:user_id",async(re
     try{
      const existingUser = await db.collection('details').findOne({ Mail_id:req.params.email });
       if (existingUser) {
-        // If the user already exists, return an error response
         return res.status(400).json({ error: 'User with this email already exists' });
       }
       const jsonData = {
@@ -34,6 +33,8 @@ app.post("/signup/:name/:email/:number/:dob/:password/:gender/:user_id",async(re
         "Gender": req.params.gender,
         "Number":req.params.number,
         "Dob":req.params.dob,
+        "LastEarnedDate": "Date",
+        "EarnedCount": 0,
         "Week": [
           {
             "week": "week1",
@@ -131,7 +132,6 @@ app.post("/signup/:name/:email/:number/:dob/:password/:gender/:user_id",async(re
           }
         ]
       };
-      await db.collection("details").createIndex({ keywords: 'text' });
     const details = await db.collection("details").insertOne(jsonData);
     res.json(details);
     
@@ -142,36 +142,53 @@ app.post("/signup/:name/:email/:number/:dob/:password/:gender/:user_id",async(re
     }
     
 })
-app.post('/update/:email/:temp',async (req,res)=>{
-  
-    const details = await db.collection("details").findOneAndUpdate({Mail_id:req.params.email},{$set:{Points:req.params.temp}});
-    res.json(details);
-})
+app.post('/update/:email/:temp', async (req, res) => {
+  const userEmail = req.params.email;
+  const updatedPoints =req.params.temp  ;
+
+  // Check if the user has already earned points today
+  const today = new Date().toISOString().slice(0, 10);
+  const user = await db.collection("details").findOne({ Mail_id: userEmail });
+
+  if (user && user.LastEarnedDate !== today && updatedPoints > user.Points) {
+      res.status(400).json({ error: "Points can only be earned once per day." });
+      return;
+  }
+
+  // Check if the user has already earned 4 points
+  if (user.EarnedCount > 4) {
+      console.log("none");
+      return;
+  }
+
+  // Update the user's points and last earned date
+  const details = await db.collection("details").findOneAndUpdate(
+      { Mail_id: userEmail },
+      {
+          $set: {
+              Points: updatedPoints,
+              EarnedCount :updatedPoints,
+          }
+      },
+      { returnOriginal: false }
+  );
+
+  res.json(details.value);
+});
+
 
 app.get("/get/:searchkey",async(req,res)=>{
     const query = { $text: { $search: req.params.searchkey } };
     const searchResult = await db.collection('articles').find(query).toArray();
     res.send(searchResult);
 }) 
-app.get('/internalsearch/:mail/:searchkey', async (req, res) => {
-    const query = {
-      $text: { $search: req.params.searchkey },
-      Mail_id: req.params.mail
-    };
-    
-    try {
-      const searchResult = await db.collection('details').find(query).toArray();
-      res.send(searchResult);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Internal server error");
-    }
-  });
+
+
   
 app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     const dobdata = await db.collection('details').findOne({ Mail_id: req.params.email });
   
-    if (dobdata && dobdata.Dob === req.params.dob) { // Check if dobdata is defined
+    if (dobdata && dobdata.Dob === req.params.dob) { 
         const details = await db.collection('details').findOneAndUpdate(
             { Mail_id: req.params.email },
             { $set: { Password: req.params.newpassword } }
@@ -181,6 +198,20 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
         res.status(400).json({ error: 'Invalid email or date of birth' });
     }
   });
+  app.post("/admin/articles/:title/:content/:key1/:key2",async (res,req)=>{
+    const collection = db.collection('articles');
+    await collection.createIndex({ keywords: 'text' });
+    const articles = [
+      {
+        title: req.params.title,
+        content: req.params.content,
+        keywords: [req.params.key1, req.params.key2]
+      }
+    ];
+       const result =  await collection.insertMany(articles);
+       res.json(result);
+  })
+
 
 connectToDB(()=>{
     app.listen(8000,()=>{

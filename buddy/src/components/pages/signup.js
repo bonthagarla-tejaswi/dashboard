@@ -25,7 +25,7 @@ export const Signup = () => {
              nav("/");
          }
          else{
-             alert("Something went wrong try again");
+             alert(" check your internet connection");
          }
       }
       else{
@@ -36,7 +36,8 @@ export const Signup = () => {
      catch(e)
      {
       console.log(e);
-      alert("User with this email already exists");
+      alert("User with this email already exists or check your email");
+      nav("/");
      }
      
   }

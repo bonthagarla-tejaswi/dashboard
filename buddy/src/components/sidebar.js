@@ -1,9 +1,8 @@
-import { cibDashlane, cibProbot, cilArrowThickBottom,cilGamepad, cilHamburgerMenu, cilSettings } from '@coreui/icons';
+import { cibDashlane, cibProbot, cilAccountLogout, cilArrowThickBottom,cilGamepad, cilHamburgerMenu, cilSettings } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import SearchBar2 from './searchbarInternal';
 
 function Sidebar() {
   const [show, setShow] = useState(false);
@@ -13,7 +12,7 @@ function Sidebar() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className='btn p-3'>
+      <Button variant="primary" onClick={handleShow} className='btn pl-3'>
         <CIcon icon={cilHamburgerMenu} className='anim-none ' size='md'/>
       </Button>
       <Offcanvas show={show} onHide={handleClose} className="sidebar-off off-canvas-sm">
@@ -23,7 +22,7 @@ function Sidebar() {
         </Offcanvas.Header>
         </div>
         <center>
-        <SearchBar2 />
+        {/* <SearchBar2 /> */}
         </center>
        
         <Offcanvas.Body>
@@ -31,7 +30,7 @@ function Sidebar() {
         <div className="d-grid gap-2 text-left">
           <a href='/' className='btn-none sidebar-list'><CIcon icon={cibDashlane} className='anim-none'/> Dashboard</a>
         <div className='dropdown' >
-         <a href='/games' className='btn-none sidebar-list '> <CIcon icon={cilGamepad} className='anim-none' size='lg'/> Games </a><span className='btn btn-outline-success d-sm-none'><CIcon icon={cilArrowThickBottom} className='anim-none'/></span>
+         <a href='/games' className='btn-none sidebar-list '> <CIcon icon={cilGamepad} className='anim-none'/> Games </a><span className='btn btn-outline-success d-sm-none'><CIcon icon={cilArrowThickBottom} className='anim-none'/></span>
          <div className="dropdown-content">
            <a href="/games/dicee">Dicee</a>
            <a href="/games"> Ludo</a>
@@ -42,6 +41,7 @@ function Sidebar() {
               <a href='/profile' className='btn-none sidebar-list'><CIcon  icon={cibProbot} className='anim-none'/> Profile</a>
               {/* <a className='btn-none sidebar-list'></a> */}
               <a href='/settings' className='btn-none sidebar-list mt-4'><CIcon  icon={cilSettings} className='anim-none'/> FAQ's / Help</a>
+              <a className='color-danger border-danger sidebar-list'href='/login' onClick={localStorage.clear() }><CIcon icon={cilAccountLogout} className='anim-none text-warning '/> Logout</a>
          </div>  
         
             
