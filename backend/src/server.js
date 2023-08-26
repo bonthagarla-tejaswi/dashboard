@@ -207,7 +207,7 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
       }
     ];
     await db.collection('articles').createIndex({ keywords: 'text' });
-       const result =  await db.collection('articles').insertOne({articles});
+       const result =  await db.collection('articles').insertOne(articles);
        res.json(result);
   })
 
