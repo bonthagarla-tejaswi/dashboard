@@ -198,20 +198,19 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
         res.status(400).json({ error: 'Invalid email or date of birth' });
     }
   });
-  app.post("/admin/articles/:title/:content/:key1/:key2",async (res,req)=>{
-    
-    
-    const articles = [
-      {
-        title: req.params.title,
-        content: req.params.content,
-        keywords: [req.params.key1, req.params.key2]
-      }
-    ];
-    await db.collection('articles').createIndex({ keywords: 'text' });
-       const result =  await db.collection('articles').insertOne(articles);
-       res.json(result);
-  })
+  // app.post("/admin/articles/:title/:content/:key1/:key2",async (res,req)=>{
+  
+  //   const articles = [
+  //     {
+  //       title: req.params.title,
+  //       content: req.params.content,
+  //       keywords: [req.params.key1, req.params.key2]
+  //     }
+  //   ];
+  //   await db.collection('articles').createIndex({ keywords: 'text' });
+  //      const result =  await db.collection('articles').insertOne(articles);
+  //      res.json(result);
+  // })
 
 
 connectToDB(()=>{
