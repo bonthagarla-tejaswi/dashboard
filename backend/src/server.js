@@ -199,8 +199,8 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     }
   });
   app.post("/admin/articles/:title/:content/:key1/:key2",async (res,req)=>{
-    const collection = db.collection('articles');
-    await collection.createIndex({ keywords: 'text' });
+    ;
+    await db.collection('articles').createIndex({ keywords: 'text' });
     const articles = [
       {
         title: req.params.title,
@@ -208,7 +208,7 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
         keywords: [req.params.key1, req.params.key2]
       }
     ];
-       const result =  await collection.insertMany(articles);
+       const result =  await db.collection('articles').insertOne(articles);
        res.json(result);
   })
 

@@ -13,7 +13,7 @@ function Sidebar() {
   return (
     <>
       <Button variant="primary" onClick={handleShow} className='btn pl-3'>
-        <CIcon icon={cilHamburgerMenu} className='anim-none ' size='md'/>
+        <CIcon icon={cilHamburgerMenu} className='anim-none ' />
       </Button>
       <Offcanvas show={show} onHide={handleClose} className="sidebar-off off-canvas-sm">
       <div className='bg-warning text-center'>

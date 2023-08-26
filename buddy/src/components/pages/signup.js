@@ -162,15 +162,15 @@ export const Signup = () => {
           <input type="radio" name="gender" id="dot-3" value="others" onChange={(e) => setGender(e.target.value)} required/>
           <span className="gender-title">Gender</span>
           <div className="category">
-            <label for="dot-1">
+            <label htmlFor="dot-1">
             <span className="dot one"></span>
             <span className="gender">Male</span>
           </label>
-          <label for="dot-2">
+          <label htmlFor="dot-2">
             <span className="dot two"></span>
             <span className="gender">Female</span>
           </label>
-          <label for="dot-3">
+          <label htmlFor="dot-3">
             <span className="dot three"></span>
             <span className="gender">Prefer not to say</span>
             </label>
