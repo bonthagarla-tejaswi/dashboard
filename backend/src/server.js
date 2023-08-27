@@ -183,8 +183,6 @@ app.get("/get/:searchkey",async(req,res)=>{
     res.send(searchResult);
 }) 
 
-
-  
 app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     const dobdata = await db.collection('details').findOne({ Mail_id: req.params.email });
   
