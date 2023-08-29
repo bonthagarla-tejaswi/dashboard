@@ -208,6 +208,16 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
        const result =  await db.collection('articles').insertOne(articles);
        res.json(result);
   })
+  app.post("/admin/quotes/:quote", async (req, res) => {
+    const quotepost = await db.collection('quotes').findOneAndUpdate({User :"admin"},{$set:{Quotes:req.params.quote}}); 
+    res.json(quotepost);
+  })
+  app.get("/quotetoday",async(req, res)=>{
+    const searchResult = await db.collection('quotes').find().toArray();
+    res.json(searchResult);
+  })
+
+
 app.get("/userslist",async(req, res)=>{
   const searchResult = await db.collection('details').find().toArray();
   res.json(searchResult);
