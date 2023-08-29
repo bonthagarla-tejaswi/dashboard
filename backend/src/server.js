@@ -197,18 +197,27 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     }
   });
   app.post("/admin/articles/:title/:content/:key1/:key2",async (req,res)=>{
-    const articles = [
+    const articles = 
       {
         title: req.params.title,
         content: req.params.content,
         keywords: [req.params.key1, req.params.key2]
       }
-    ];
+    ;
     await db.collection('articles').createIndex({ keywords: 'text' });
        const result =  await db.collection('articles').insertOne(articles);
        res.json(result);
   })
+app.get("/userslist",async(req, res)=>{
+  const searchResult = await db.collection('details').find().toArray();
+  res.json(searchResult);
+})
+app.get("/articalslist",async(req, res)=>{
+  const searchResult = await db.collection('articles').find().toArray();
+  res.json(searchResult);
 
+
+})
 
 connectToDB(()=>{
     app.listen(8000,()=>{
