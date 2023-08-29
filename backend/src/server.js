@@ -213,7 +213,7 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     res.json(quotepost);
   })
   app.get("/quotetoday",async(req, res)=>{
-    const searchResult = await db.collection('quotes').find().toArray();
+    const searchResult = await db.collection('quotes').findOne({User:"admin"});
     res.json(searchResult);
   })
 
