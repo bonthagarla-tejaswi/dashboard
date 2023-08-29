@@ -216,7 +216,7 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     const searchResult = await db.collection('quotes').findOne({User:"admin"});
     res.json(searchResult);
   })
-
+// no errors here
 
 app.get("/userslist",async(req, res)=>{
   const searchResult = await db.collection('details').find().toArray();
