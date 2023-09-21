@@ -5,15 +5,15 @@ const app=express();
 app.use(express.json());
 app.use(cors());
 //check server//
-app.get('/',(req,res)=>{
+app.post('/',(req,res)=>{
     res.send("server is running")
 })
 // collection name -{details} and db name -{dashboarddata}
-app.get("/full/:detail",async(req,res)=>{
+app.post("/full/:detail",async(req,res)=>{
     const result = await db.collection("details").findOne({Mail_id:req.params.detail});
     res.json(result);
 })
-app.get("/signin/:email/:password",async(req,res)=>{ 
+app.post("/signin/:email/:password",async(req,res)=>{ 
     const details = await db.collection("details").findOne({Mail_id:req.params.email,Password:req.params.password});
     res.json(details);
 })
@@ -177,7 +177,7 @@ app.post('/update/:email/:temp', async (req, res) => {
 });
 
 
-app.get("/get/:searchkey",async(req,res)=>{
+app.post("/get/:searchkey",async(req,res)=>{
     const query = { $text: { $search: req.params.searchkey } };
     const searchResult = await db.collection('articles').find(query).toArray();
     res.send(searchResult);
@@ -212,22 +212,26 @@ app.post('/updatepass/:email/:dob/:newpassword', async (req, res) => {
     const quotepost = await db.collection('quotes').findOneAndUpdate({User :"admin"},{$set:{Quotes:req.params.quote}}); 
     res.json(quotepost);
   })
-  app.get("/quotetoday",async(req, res)=>{
+  app.post("/quotetoday",async(req, res)=>{
     const searchResult = await db.collection('quotes').findOne({User:"admin"});
     res.json(searchResult);
   })
 // no errors here
 
-app.get("/userslist",async(req, res)=>{
+app.post("/userslist",async(req, res)=>{
   const searchResult = await db.collection('details').find().toArray();
   res.json(searchResult);
 })
-app.get("/articalslist",async(req, res)=>{
+app.post("/articalslist",async(req, res)=>{
   const searchResult = await db.collection('articles').find().toArray();
   res.json(searchResult);
 
 
 })
+app.all("*", function (req, res) {
+  res.send("<h1>ERRI PAPPAVI RA NUVVU </h1><br/><img src='/madguy.jpg' style='width:100%'/>");
+});
+
 
 connectToDB(()=>{
     app.listen(8000,()=>{
