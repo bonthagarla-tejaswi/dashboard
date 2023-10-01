@@ -233,7 +233,9 @@ app.post("/articalslist",async(req, res)=>{
 app.all("*", function (req, res) {
   res.send("<h1 align='center'>ERRI PAPPAVI RA NUVVU </h1><br/><img src='/madguy.jpg' style='width:100%'/>");
 });
-
+const mylinks ={
+  origin :[ "https://myapp-buddy.vercel.app/","http://localhost:3000/"]
+}
 
 connectToDB(()=>{
     app.listen(8000,()=>{
