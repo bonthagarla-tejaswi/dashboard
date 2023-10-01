@@ -236,7 +236,7 @@ app.all("*", function (req, res) {
 const mylinks ={
   origin :[ "https://myapp-buddy.vercel.app/","http://localhost:3000/"]
 }
-
+app.use(cors(mylinks))
 connectToDB(()=>{
     app.listen(8000,()=>{
         console.log("Server Running At port 8000");
